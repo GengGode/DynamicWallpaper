@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "动态壁纸", "动态壁纸\动态壁纸.csproj", "{85B4CE52-5398-4366-9BD2-5B4B0F3A3C5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01配置文件", "01配置文件\01配置文件.csproj", "{6EDD6634-D391-4AC8-91C5-92ED616CC6D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02读取文件略缩图", "02读取文件略缩图\02读取文件略缩图.csproj", "{40EB7169-C875-4324-906E-387404CCA168}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03Video建立", "03Video建立\03Video建立.csproj", "{3DBFD902-2D45-4E25-A5B5-E20584AE5FAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04获取视频时长", "04获取视频时长\04获取视频时长.csproj", "{1ADF916F-D8D4-4AEE-9011-4952CA843A6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "动态壁纸V7", "..\动态壁纸V7\动态壁纸V7\动态壁纸V7.csproj", "{D69AC0FA-C7C4-4E1B-AC6D-4BB5B4034248}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85B4CE52-5398-4366-9BD2-5B4B0F3A3C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85B4CE52-5398-4366-9BD2-5B4B0F3A3C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85B4CE52-5398-4366-9BD2-5B4B0F3A3C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85B4CE52-5398-4366-9BD2-5B4B0F3A3C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EDD6634-D391-4AC8-91C5-92ED616CC6D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EDD6634-D391-4AC8-91C5-92ED616CC6D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EDD6634-D391-4AC8-91C5-92ED616CC6D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EDD6634-D391-4AC8-91C5-92ED616CC6D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40EB7169-C875-4324-906E-387404CCA168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40EB7169-C875-4324-906E-387404CCA168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40EB7169-C875-4324-906E-387404CCA168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40EB7169-C875-4324-906E-387404CCA168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DBFD902-2D45-4E25-A5B5-E20584AE5FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DBFD902-2D45-4E25-A5B5-E20584AE5FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DBFD902-2D45-4E25-A5B5-E20584AE5FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DBFD902-2D45-4E25-A5B5-E20584AE5FAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ADF916F-D8D4-4AEE-9011-4952CA843A6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ADF916F-D8D4-4AEE-9011-4952CA843A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ADF916F-D8D4-4AEE-9011-4952CA843A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ADF916F-D8D4-4AEE-9011-4952CA843A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D69AC0FA-C7C4-4E1B-AC6D-4BB5B4034248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D69AC0FA-C7C4-4E1B-AC6D-4BB5B4034248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D69AC0FA-C7C4-4E1B-AC6D-4BB5B4034248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D69AC0FA-C7C4-4E1B-AC6D-4BB5B4034248}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE054182-C9BE-4341-A091-1C74CEED7E7F}
+	EndGlobalSection
+EndGlobal

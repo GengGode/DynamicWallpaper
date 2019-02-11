@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="动态壁纸" GeneratedClassName="SetFile">
+  <Profiles />
+  <Settings>
+    <Setting Name="IsFristStatUp" Description="是否初次启动应用程序" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DefaultPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\GengG\Pictures\Snapshots of Videos\Snapshot.png</Value>
+    </Setting>
+    <Setting Name="IsFullScreenOfMainWindow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DefaultFullScreen" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TempViewPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\GengG\Desktop\illya.mp4</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
