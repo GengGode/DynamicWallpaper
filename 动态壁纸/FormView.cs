@@ -30,14 +30,62 @@ namespace 动态壁纸
             this.Hide();
             //WindowState = FormWindowState.Minimized;
             //ShowInTaskbar = false;
-
+            videoViewPanel.Stop();
+            videoViewPanel.Dispose();
+            videoViewPanel = null;
             //销毁视频对象
         }
         #endregion
-        
+
+        #region 选择并预览视频文件
+        private void buttonOpenFileView_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OpenFileViewDialog = new OpenFileDialog();
+            OpenFileViewDialog.Filter = "Video|*.mp4;*.wmv;*.avi;*.flv;|Picture|*.jpg;*.png;*.gif;*.bmp;*.dng;|All|*.*;";
+            DialogResult OpenResultView = OpenFileViewDialog.ShowDialog();
+            if (OpenResultView == DialogResult.OK)
+            {
+                try
+                {
+                    SetFile.Default.TempViewPath = OpenFileViewDialog.FileName;
+                    if (videoViewPanel != null)
+                    {
+                        if (videoViewPanel.Playing)
+                        {
+                            videoViewPanel.Stop();
+                            videoViewPanel.Dispose();
+                            videoViewPanel = null;
+                        }
+                    }
+
+                    videoViewPanel = new Video(SetFile.Default.TempViewPath);
+
+                    //控制播放视频窗口的大小（此项目是把视频放到一个panel中，panelView是一个panel）
+                    int width = panelView.Width;
+                    int height = panelView.Height;
+                    videoViewPanel.Owner = panelView;
+                    videoViewPanel.Owner.Width = width;
+                    videoViewPanel.Owner.Height = height;
+
+                    videoViewPanel.Play();
+                }
+                catch (DirectXException ee)
+                {
+                    MessageBox.Show(ee.Message);
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show(ee.Message);
+                }
+            }
+            OpenFileViewDialog.Dispose();
+        }
+        #endregion
+
         #region 打开或新建 BackGround 窗口
         private void buttonBackGround_Click(object sender, EventArgs e)
         {
+            videoViewPanel.Pause();
             try
             {
                 if (backGroundPtr == IntPtr.Zero)
@@ -47,6 +95,9 @@ namespace 动态壁纸
 
                     if (SetFile.Default.TempViewPath != null)
                     {
+                        formBackGround.VideoBackGroundPlay(SetFile.Default.TempViewPath);
+                        //formBackGround.
+                        //音量控制
                         //formBackGround.BackGPlay(tempPath, viewP.Audio.Volume);
                         //videoViewPanel.Pause();
                     }
@@ -78,10 +129,10 @@ namespace 动态壁纸
                         //formBackGround.BackGPlay(tempPath, viewP.Audio.Volume);
                 }*/
             }
-            /*catch (DirectXException e)
+            catch (DirectXException ee)
             {
-                //MessageBox.Show();
-            }*/
+                MessageBox.Show(ee.Message);
+            }
             catch (DllNotFoundException ee)
             {
                 MessageBox.Show(ee.Message);
@@ -92,50 +143,6 @@ namespace 动态壁纸
             }
         }
         #endregion
-
-        #region 选择并预览视频文件
-        private void buttonOpenFileView_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog OpenFileViewDialog = new OpenFileDialog();
-            OpenFileViewDialog.Filter = "Video|*.mp4;*.wmv;*.avi;*.flv;|Picture|*.jpg;*.png;*.gif;*.bmp;*.dng;|All|*.*;";
-            DialogResult OpenResultView = OpenFileViewDialog.ShowDialog();
-            if (OpenResultView == DialogResult.OK)
-            {
-                try
-                {
-                    SetFile.Default.TempViewPath = OpenFileViewDialog.FileName;
-                    if (videoViewPanel != null)
-                    {
-                        if (videoViewPanel.Playing)
-                        {
-                            videoViewPanel.Stop();
-                            videoViewPanel.Dispose();
-                            videoViewPanel = null;
-                        }
-                    }
-
-                    videoViewPanel = new Video(SetFile.Default.TempViewPath);
-                    videoViewPanel.Owner = panelView;
-
-                    //控制播放视频窗口的大小（此项目是把视频放到一个panel中，panelView是一个panel）
-                    int width = panelView.Width;
-                    int height = panelView.Height;
-                    videoViewPanel.Owner.Width = width;
-                    videoViewPanel.Owner.Height = height;
-
-                    videoViewPanel.Play();
-                }
-                catch (DirectXException ee)
-                {
-                    MessageBox.Show(ee.Message);
-                }
-                catch (Exception ee)
-                {
-                    MessageBox.Show(ee.Message);
-                }
-            }
-            OpenFileViewDialog.Dispose();
-        }
-        #endregion
+        
     }
 }

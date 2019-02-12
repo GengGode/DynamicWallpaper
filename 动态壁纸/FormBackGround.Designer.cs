@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelBackGround = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // panelBackGround
+            // 
+            this.panelBackGround.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelBackGround.Location = new System.Drawing.Point(0, 0);
+            this.panelBackGround.Name = "panelBackGround";
+            this.panelBackGround.Size = new System.Drawing.Size(528, 342);
+            this.panelBackGround.TabIndex = 0;
             // 
             // FormBackGround
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 342);
+            this.Controls.Add(this.panelBackGround);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormBackGround";
             this.Text = "FormBackGround";
@@ -44,5 +56,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panelBackGround;
     }
 }

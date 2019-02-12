@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.DirectX;
+using Microsoft.DirectX.AudioVideoPlayback;
 
 namespace 动态壁纸
 {
     public partial class FormBackGround :Form
     {
         private IntPtr Ptr = IntPtr.Zero;
+        private Video videoBackGround = null;
 
         public FormBackGround()
         {
@@ -75,5 +78,29 @@ namespace 动态壁纸
             }
         }
         #endregion
+
+        public void VideoBackGroundPlay(string Path)
+        {
+            if (videoBackGround != null)
+            {
+                if (videoBackGround.Playing)
+                {
+                    videoBackGround.Stop();
+                    videoBackGround.Dispose();
+                    videoBackGround = null;
+                }
+            }
+
+            videoBackGround = new Video(Path);
+
+            //控制播放视频窗口的大小（此项目是把视频放到一个panel中，panelView是一个panel）
+            int width = panelBackGround.Width;
+            int height = panelBackGround.Height;
+            videoBackGround.Owner = panelBackGround;
+            videoBackGround.Owner.Width = width;
+            videoBackGround.Owner.Height = height;
+
+            videoBackGround.Play();
+        }
     }
 }

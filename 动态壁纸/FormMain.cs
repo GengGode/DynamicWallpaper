@@ -66,19 +66,9 @@ namespace 动态壁纸
         #region 打开或新建 View 窗口
         private void buttonView_Click(object sender, EventArgs e)
         {
-            //Console.WriteLine("start fun");
-            NewFormView();
-            //Console.WriteLine("over fun");
-        }
-        #endregion
-
-        #region 委托（NewFormView()）
-        public void NewFormView()
-        {
-            //Console.WriteLine("open 00");
             try
             {
-                if (viewPtr == IntPtr.Zero||formView==null)
+                if (viewPtr == IntPtr.Zero || formView == null)
                 {
                     formView = new FormView();
                     viewPtr = formView.Handle;
@@ -89,10 +79,10 @@ namespace 动态壁纸
                     formView.Show();
                 }
             }
-            /*catch (DirectXException ee)
+            catch (DirectXException ee)
             {
                 MessageBox.Show(ee.Message);
-            }*/
+            }
             catch (DllNotFoundException ee)
             {
                 MessageBox.Show(ee.Message);
