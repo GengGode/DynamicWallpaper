@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSet));
             this.labelDefaultPath = new System.Windows.Forms.Label();
             this.buttonDefaultPath = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             this.ClientSize = new System.Drawing.Size(525, 269);
             this.Controls.Add(this.buttonDefaultPath);
             this.Controls.Add(this.labelDefaultPath);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormSet";
             this.Text = "FormSet";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSet_FormClosing);

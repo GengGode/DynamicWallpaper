@@ -94,6 +94,7 @@
             this.Controls.Add(this.pictureBoxMain);
             this.Controls.Add(this.buttonSet);
             this.Controls.Add(this.buttonView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(428, 231);
             this.Name = "FormMain";
             this.Text = "主窗口";

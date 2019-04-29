@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormView));
             this.panelView = new System.Windows.Forms.Panel();
             this.buttonBackGround = new System.Windows.Forms.Button();
             this.buttonOpenFileView = new System.Windows.Forms.Button();
@@ -72,6 +73,7 @@
             this.Controls.Add(this.buttonOpenFileView);
             this.Controls.Add(this.buttonBackGround);
             this.Controls.Add(this.panelView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormView";
             this.Text = "FormView";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormView_FormClosing);
