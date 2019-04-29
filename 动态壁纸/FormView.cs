@@ -85,7 +85,10 @@ namespace 动态壁纸
         #region 打开或新建 BackGround 窗口
         private void buttonBackGround_Click(object sender, EventArgs e)
         {
-            videoViewPanel.Pause();
+            if(videoViewPanel.Playing)
+            {
+                videoViewPanel.Pause();
+            }
             try
             {
                 if (backGroundPtr == IntPtr.Zero)

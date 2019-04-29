@@ -57,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 269);
+            this.ClientSize = new System.Drawing.Size(525, 90);
             this.Controls.Add(this.buttonDefaultPath);
             this.Controls.Add(this.labelDefaultPath);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

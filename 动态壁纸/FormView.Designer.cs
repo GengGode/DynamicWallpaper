@@ -41,13 +41,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelView.Location = new System.Drawing.Point(12, 12);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(451, 263);
+            this.panelView.Size = new System.Drawing.Size(451, 258);
             this.panelView.TabIndex = 0;
             // 
             // buttonBackGround
             // 
+            this.buttonBackGround.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonBackGround.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonBackGround.Location = new System.Drawing.Point(388, 306);
+            this.buttonBackGround.Location = new System.Drawing.Point(388, 281);
             this.buttonBackGround.Name = "buttonBackGround";
             this.buttonBackGround.Size = new System.Drawing.Size(75, 23);
             this.buttonBackGround.TabIndex = 1;
@@ -57,7 +58,8 @@
             // 
             // buttonOpenFileView
             // 
-            this.buttonOpenFileView.Location = new System.Drawing.Point(307, 306);
+            this.buttonOpenFileView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOpenFileView.Location = new System.Drawing.Point(307, 281);
             this.buttonOpenFileView.Name = "buttonOpenFileView";
             this.buttonOpenFileView.Size = new System.Drawing.Size(75, 23);
             this.buttonOpenFileView.TabIndex = 2;
@@ -69,7 +71,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 341);
+            this.ClientSize = new System.Drawing.Size(475, 316);
             this.Controls.Add(this.buttonOpenFileView);
             this.Controls.Add(this.buttonBackGround);
             this.Controls.Add(this.panelView);
