@@ -126,5 +126,10 @@ namespace 动态壁纸
         {
 
         }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

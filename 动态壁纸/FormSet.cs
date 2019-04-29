@@ -12,6 +12,11 @@ namespace 动态壁纸
 {
     public partial class FormSet : Form
     {
+        private FormAbout formAbout = null;
+        private IntPtr aboutPtr = IntPtr.Zero;
+
+        internal FormAbout FormAbout { get => formAbout; set => formAbout = value; }
+
         public FormSet()
         {
             InitializeComponent();
@@ -34,6 +39,21 @@ namespace 动态壁纸
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            if (FormAbout == null)
+            {
+                FormAbout = new FormAbout();
+                FormAbout.Show();
+            }
+            else
+            {
+                FormAbout = new FormAbout();
+                FormAbout.Show();
+                //FormAbout.Show();
+            }
         }
     }
 }

@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBackGround.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
       <DependentUpon>SetFile.settings</DependentUpon>
     </Compile>
     <Compile Include="Win32.cs" />
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBackGround.resx">
       <DependentUpon>FormBackGround.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +118,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="bin\Debug\动态壁纸.exe.config" />
     <None Include="Properties\Settings.settings">
@@ -131,6 +141,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\动态壁纸.exe" />
     <Content Include="bin\Debug\动态壁纸.pdb" />
+    <None Include="Resources\G_.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

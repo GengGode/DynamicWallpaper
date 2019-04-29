@@ -146,6 +146,16 @@ namespace 动态壁纸
             }
         }
         #endregion
-        
+
+        private void FormView_Load(object sender, EventArgs e)
+        {
+            String Screens = Screen.AllScreens[0].DeviceName.ToString();
+            //Screen[Bounds={X=0,Y=0,Width=1366,Height=768} WorkingArea={X=0,Y=0,Width=1366,Height=768} Primary=True DeviceName=\\.\DISPLAY1
+            //foreach (String Screen in Screens)
+            {
+                ComboBoxAllScreens.Items.Add(Screens);
+            }
+            ComboBoxAllScreens.SelectedItem = 1;
+        }
     }
 }

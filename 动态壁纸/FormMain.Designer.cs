@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.buttonView = new System.Windows.Forms.Button();
             this.buttonSet = new System.Windows.Forms.Button();
-            this.pictureBoxMain = new System.Windows.Forms.PictureBox();
             this.buttonBackGroundMain = new System.Windows.Forms.Button();
+            this.pictureBoxMain = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             this.buttonView.Name = "buttonView";
             this.buttonView.Size = new System.Drawing.Size(75, 23);
             this.buttonView.TabIndex = 0;
-            this.buttonView.Text = "View";
+            this.buttonView.Text = "预览";
             this.buttonView.UseVisualStyleBackColor = true;
             this.buttonView.Click += new System.EventHandler(this.buttonView_Click);
             // 
@@ -54,9 +54,20 @@
             this.buttonSet.Name = "buttonSet";
             this.buttonSet.Size = new System.Drawing.Size(75, 23);
             this.buttonSet.TabIndex = 1;
-            this.buttonSet.Text = "Set";
+            this.buttonSet.Text = "设置";
             this.buttonSet.UseVisualStyleBackColor = true;
             this.buttonSet.Click += new System.EventHandler(this.buttonSet_Click);
+            // 
+            // buttonBackGroundMain
+            // 
+            this.buttonBackGroundMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBackGroundMain.Location = new System.Drawing.Point(325, 157);
+            this.buttonBackGroundMain.Name = "buttonBackGroundMain";
+            this.buttonBackGroundMain.Size = new System.Drawing.Size(75, 23);
+            this.buttonBackGroundMain.TabIndex = 3;
+            this.buttonBackGroundMain.Text = "装载";
+            this.buttonBackGroundMain.UseVisualStyleBackColor = true;
+            this.buttonBackGroundMain.Click += new System.EventHandler(this.buttonBackGroundMain_Click);
             // 
             // pictureBoxMain
             // 
@@ -74,17 +85,6 @@
             this.pictureBoxMain.TabIndex = 2;
             this.pictureBoxMain.TabStop = false;
             // 
-            // buttonBackGroundMain
-            // 
-            this.buttonBackGroundMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBackGroundMain.Location = new System.Drawing.Point(325, 157);
-            this.buttonBackGroundMain.Name = "buttonBackGroundMain";
-            this.buttonBackGroundMain.Size = new System.Drawing.Size(75, 23);
-            this.buttonBackGroundMain.TabIndex = 3;
-            this.buttonBackGroundMain.Text = "Install";
-            this.buttonBackGroundMain.UseVisualStyleBackColor = true;
-            this.buttonBackGroundMain.Click += new System.EventHandler(this.buttonBackGroundMain_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -97,7 +97,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(428, 231);
             this.Name = "FormMain";
-            this.Text = "主窗口";
+            this.Text = "动态壁纸";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).EndInit();
             this.ResumeLayout(false);
 
