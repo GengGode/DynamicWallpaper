@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04获取视频时长", "04�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "动态壁纸V7", "..\动态壁纸V7\动态壁纸V7\动态壁纸V7.csproj", "{D69AC0FA-C7C4-4E1B-AC6D-4BB5B4034248}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05多屏全屏", "05多屏全屏\05多屏全屏.csproj", "{2185F1BB-AE22-4AB8-9A9A-A7AA3A9B2B16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{D69AC0FA-C7C4-4E1B-AC6D-4BB5B4034248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D69AC0FA-C7C4-4E1B-AC6D-4BB5B4034248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D69AC0FA-C7C4-4E1B-AC6D-4BB5B4034248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2185F1BB-AE22-4AB8-9A9A-A7AA3A9B2B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2185F1BB-AE22-4AB8-9A9A-A7AA3A9B2B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2185F1BB-AE22-4AB8-9A9A-A7AA3A9B2B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2185F1BB-AE22-4AB8-9A9A-A7AA3A9B2B16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
