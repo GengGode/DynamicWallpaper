@@ -58,10 +58,19 @@ namespace 动态壁纸
         #endregion
 
         #region 窗口全屏（SetFullScreen(int i)）
-        public void SetFullScreen(Byte i)
+        public void SetFullScreen(int i)
         {
-            
-            if(System.Windows.Forms.Screen.AllScreens.Count() != 1)
+            //this.DesktopLocation = new Point(Screen.AllScreens[i].Bounds.X, Screen.AllScreens[i].Bounds.Y);
+            //this.DesktopLocation = new Point(this.Bounds.X, this.Bounds.Y);
+            this.DesktopBounds = new Rectangle(Screen.AllScreens[i].WorkingArea.X, Screen.AllScreens[i].WorkingArea.Y, Screen.AllScreens[i].WorkingArea.Width, Screen.AllScreens[i].WorkingArea.Height);
+            this.Location = new Point(Screen.AllScreens[i].Bounds.X, Screen.AllScreens[i].Bounds.Y);
+            //this.ClientSize.Width = Screen.AllScreens[i].Bounds.Width;       
+            //this.ClientSize.Height = Screen.AllScreens[i].Bounds.Height;
+            /*
+             
+             */
+            /*
+            if (System.Windows.Forms.Screen.AllScreens.Count() != 1)
             {
                 if (System.Windows.Forms.Screen.AllScreens.Count() > i)
                 {
@@ -76,6 +85,7 @@ namespace 动态壁纸
                 this.Width = Screen.AllScreens[0].Bounds.Width;
                 this.Height = Screen.AllScreens[0].Bounds.Height;
             }
+            */
         }
         #endregion
 

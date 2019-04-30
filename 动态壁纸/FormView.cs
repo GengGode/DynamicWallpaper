@@ -30,10 +30,14 @@ namespace 动态壁纸
             this.Hide();
             //WindowState = FormWindowState.Minimized;
             //ShowInTaskbar = false;
-            videoViewPanel.Stop();
-            videoViewPanel.Dispose();
-            videoViewPanel = null;
-            //销毁视频对象
+            if (videoViewPanel != null)
+            {
+                videoViewPanel.Stop();
+                videoViewPanel.Dispose();
+                videoViewPanel = null;
+                //销毁视频对象
+            }
+
         }
         #endregion
 
@@ -85,9 +89,13 @@ namespace 动态壁纸
         #region 打开或新建 BackGround 窗口
         private void buttonBackGround_Click(object sender, EventArgs e)
         {
-            if(videoViewPanel.Playing)
+            int ScreenCount = ComboBoxAllScreens.SelectedIndex;
+            if (videoViewPanel!=null)
             {
-                videoViewPanel.Pause();
+                if (videoViewPanel.Playing)
+                {
+                    videoViewPanel.Pause();
+                }
             }
             try
             {
@@ -104,7 +112,9 @@ namespace 动态壁纸
                         //formBackGround.BackGPlay(tempPath, viewP.Audio.Volume);
                         //videoViewPanel.Pause();
                     }
-                    
+                    formBackGround.SetFullScreen(ScreenCount);
+                    formBackGround.Show();
+                    /*
                     if (SetFile.Default.IsFullScreenOfMainWindow)//Screen.AllScreens.Count() = 1
                     {
                         formBackGround.SetFullScreen(0);
@@ -123,6 +133,7 @@ namespace 动态壁纸
                             formBackGround.Show();
                         }
                     }
+                    */
                 }
                 /*else
                 {
@@ -149,13 +160,26 @@ namespace 动态壁纸
 
         private void FormView_Load(object sender, EventArgs e)
         {
-            String Screens = Screen.AllScreens[0].DeviceName.ToString();
-            //Screen[Bounds={X=0,Y=0,Width=1366,Height=768} WorkingArea={X=0,Y=0,Width=1366,Height=768} Primary=True DeviceName=\\.\DISPLAY1
-            //foreach (String Screen in Screens)
+            
+            int Count = Screen.AllScreens.Count();
+            int i;
+            for (i = 0; i < Count; i++)
             {
-                ComboBoxAllScreens.Items.Add(Screens);
+                String screen = Screen.AllScreens[i].DeviceName;//.ToString();
+                ComboBoxAllScreens.Items.Add(screen);
             }
-            ComboBoxAllScreens.SelectedItem = 1;
+            
+            /*
+            Screen[] Screens = Screen.AllScreens.ToArray();
+            //Screen[Bounds={X=0,Y=0,Width=1366,Height=768} WorkingArea={X=0,Y=0,Width=1366,Height=768} Primary=True DeviceName=\\.\DISPLAY1
+            //Screen[Bounds={X=1366,Y=-235,Width=1920,Height=1080} WorkingArea={X=1366,Y=-235,Width=1920,Height=1080} Primary=False DeviceName=\\.\DISPLAY2
+            
+            foreach (Screen Screen in Screens)
+            {
+                ComboBoxAllScreens.Items.Add(Screen);
+            }
+            */
+            ComboBoxAllScreens.SelectedIndex = 0;
         }
     }
 }
