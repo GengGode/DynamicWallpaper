@@ -1,6 +1,7 @@
 ﻿using Microsoft.DirectX.AudioVideoPlayback;
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace 动态壁纸
@@ -53,32 +54,36 @@ namespace 动态壁纸
         #region 窗口全屏（SetFullScreen(int i)）
         public void SetFullScreen(int i)
         {
-            //this.DesktopLocation = new Point(Screen.AllScreens[i].Bounds.X, Screen.AllScreens[i].Bounds.Y);
-            //this.DesktopLocation = new Point(this.Bounds.X, this.Bounds.Y);
-            this.DesktopBounds = new Rectangle(Screen.AllScreens[i].WorkingArea.X, Screen.AllScreens[i].WorkingArea.Y, Screen.AllScreens[i].WorkingArea.Width, Screen.AllScreens[i].WorkingArea.Height);
-            this.Location = new Point(Screen.AllScreens[i].Bounds.X, Screen.AllScreens[i].Bounds.Y);
-            //this.ClientSize.Width = Screen.AllScreens[i].Bounds.Width;       
-            //this.ClientSize.Height = Screen.AllScreens[i].Bounds.Height;
-            /*
-             
-             */
-            /*
-            if (System.Windows.Forms.Screen.AllScreens.Count() != 1)
+            Win32.MoveWindow(this.Handle, 0, 0, Screen.AllScreens[i].Bounds.Width, Screen.AllScreens[i].Bounds.Height, true);
+
+            Point PointScree0 = new Point(0, 0);
+            Point PointScree1 = new Point(Screen.AllScreens[1].Bounds.Location.X, Screen.AllScreens[1].Bounds.Location.Y);
+            int k;
+            for (k = 0; k < Screen.AllScreens.Count() - 1; k++)
             {
-                if (System.Windows.Forms.Screen.AllScreens.Count() > i)
+                if (Screen.AllScreens[k].Bounds.Location.X < Screen.AllScreens[k + 1].Bounds.Location.X)
                 {
-                    this.Location = new Point(Screen.AllScreens[i].Bounds.X, Screen.AllScreens[i].Bounds.Y);
-                    this.Width = Screen.AllScreens[i].Bounds.Width;
-                    this.Height = Screen.AllScreens[i].Bounds.Height;
+                    PointScree0.X = 0;
+                    PointScree1.X = Screen.AllScreens[k].Bounds.Width;
                 }
+                if (Screen.AllScreens[k].Bounds.Location.Y > Screen.AllScreens[k + 1].Bounds.Location.Y)
+                {
+                    PointScree0.Y = this.DesktopBounds.Location.Y;
+                    PointScree1.Y = 0;
+                }
+
+            }
+            //textBox1.Text = textBox1.Text + PointScree0.ToString()+ PointScree1.ToString();
+
+            if (i == 0)
+            {
+                Win32.MoveWindow(this.Handle, this.DesktopBounds.Location.X, -this.DesktopBounds.Location.Y, Screen.AllScreens[i].Bounds.Width, Screen.AllScreens[i].Bounds.Height, true);
             }
             else
             {
-                this.Location = new Point(Screen.AllScreens[0].Bounds.X, Screen.AllScreens[0].Bounds.Y);
-                this.Width = Screen.AllScreens[0].Bounds.Width;
-                this.Height = Screen.AllScreens[0].Bounds.Height;
+                Win32.MoveWindow(this.Handle, Screen.AllScreens[i].Bounds.X, 0, Screen.AllScreens[i].Bounds.Width, Screen.AllScreens[i].Bounds.Height, true);
+
             }
-            */
         }
         #endregion
 

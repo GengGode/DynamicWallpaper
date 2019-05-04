@@ -23,49 +23,45 @@ namespace _05多屏全屏
         private void button1_Click(object sender, EventArgs e)
         {
             SetBackGround();
-            //SetFullScreen(comboBox1.SelectedIndex);
+            SetFullScreen(comboBox1.SelectedIndex);
 
-            textBox1.Text = this.DesktopBounds.ToString() + this.Location.ToString();
+            textBox1.Text = textBox1.Text + this.DesktopBounds.ToString() + this.Location.ToString();
             textBox1.Text = textBox1.Text+ this.DesktopBounds.Location.Y+ Screen.AllScreens[comboBox1.SelectedIndex].ToString();
         }
 
         #region 窗口全屏（SetFullScreen(int i)）
         public void SetFullScreen(int i)
         {
-            //this.DesktopLocation = new Point(Screen.AllScreens[i].Bounds.X, Screen.AllScreens[i].Bounds.Y);
-            //this.DesktopLocation = new Point(this.Bounds.X, this.Bounds.Y);
+            Win32.MoveWindow(this.Handle, 0, 0, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Width, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Height, true);
 
-            this.DesktopBounds = new Rectangle(Screen.AllScreens[i].WorkingArea.X, Screen.AllScreens[i].WorkingArea.Y, Screen.AllScreens[i].WorkingArea.Width, Screen.AllScreens[i].WorkingArea.Height);
-            this.Location = new Point(Screen.AllScreens[i].Bounds.X - Screen.AllScreens[i].WorkingArea.X, Screen.AllScreens[i].Bounds.Y - Screen.AllScreens[i].WorkingArea.Y);
-            this.Location = new Point(Screen.AllScreens[i].Bounds.Left, Screen.AllScreens[i].Bounds.Top);
-            this.Location = new Point(0,238);
-            this.DesktopBounds = new Rectangle(0, 0, 1300, 700);
-            //textBox1.Text = this.DesktopBounds.ToString() + this.Location.ToString();
-            //textBox1.Text = textBox1.Text + this.DesktopBounds.Location.Y;
-            this.DesktopBounds = Screen.AllScreens[i].Bounds;
-            //this.DesktopBounds.Location.X
-            //this.ClientSize.Width = Screen.AllScreens[i].Bounds.Width;       
-            //this.ClientSize.Height = Screen.AllScreens[i].Bounds.Height;
-            /*
-             
-             */
-            /*
-            if (System.Windows.Forms.Screen.AllScreens.Count() != 1)
+            Point PointScree0 = new Point(0, 0);
+            Point PointScree1 = new Point(Screen.AllScreens[1].Bounds.Location.X, Screen.AllScreens[1].Bounds.Location.Y);
+            int k;
+            for (k=0;k< Screen.AllScreens.Count()-1;k++)
             {
-                if (System.Windows.Forms.Screen.AllScreens.Count() > i)
+                if (Screen.AllScreens[k].Bounds.Location.X < Screen.AllScreens[k + 1].Bounds.Location.X)
                 {
-                    this.Location = new Point(Screen.AllScreens[i].Bounds.X, Screen.AllScreens[i].Bounds.Y);
-                    this.Width = Screen.AllScreens[i].Bounds.Width;
-                    this.Height = Screen.AllScreens[i].Bounds.Height;
+                    PointScree0.X = 0;
+                    PointScree1.X = Screen.AllScreens[k].Bounds.Width;
                 }
+                if (Screen.AllScreens[k].Bounds.Location.Y > Screen.AllScreens[k + 1].Bounds.Location.Y)
+                {
+                    PointScree0.Y = this.DesktopBounds.Location.Y;
+                    PointScree1.Y = 0;
+                }
+
+            }
+            //textBox1.Text = textBox1.Text + PointScree0.ToString()+ PointScree1.ToString();
+
+            if (comboBox1.SelectedIndex == 0)
+            {
+                Win32.MoveWindow(this.Handle, this.DesktopBounds.Location.X, -this.DesktopBounds.Location.Y, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Width, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Height, true);
             }
             else
             {
-                this.Location = new Point(Screen.AllScreens[0].Bounds.X, Screen.AllScreens[0].Bounds.Y);
-                this.Width = Screen.AllScreens[0].Bounds.Width;
-                this.Height = Screen.AllScreens[0].Bounds.Height;
+                Win32.MoveWindow(this.Handle, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.X, 0, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Width, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Height, true);
+                
             }
-            */
         }
         #endregion
 
@@ -89,19 +85,7 @@ namespace _05多屏全屏
                 }, IntPtr.Zero);
             }// 窗口置父，设置背景窗口的父窗口为 Program Manager 窗口
             Win32.SetParent(this.Handle, Ptr);
-            if (comboBox1.SelectedIndex==0)
-            {
-                Win32.MoveWindow(this.Handle, 0, 0, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Width, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Height, true);
-                //Win32.MoveWindow(this.Handle, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.X, -Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Y, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Width, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Height, true );
-                Win32.MoveWindow(this.Handle, this.DesktopBounds.Location.X, -this.DesktopBounds.Location.Y, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Width, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Height, true);
-            }
-            else
-            {
-                Win32.MoveWindow(this.Handle, 0, 0, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Width, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Height, true);
-                //Win32.MoveWindow(this.Handle, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.X, -Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Y, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Width, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Height, true );
-                Win32.MoveWindow(this.Handle, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.X, 0, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Width, Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Height, true);
-                //-Screen.AllScreens[comboBox1.SelectedIndex].Bounds.Y
-            }
+            
         }
         #endregion
 

@@ -27,5 +27,8 @@ namespace 动态壁纸
 
         [DllImport("user32.dll")]
         public static extern IntPtr SetParent(IntPtr hwnd, IntPtr parentHwnd);
+
+        [DllImport("user32.dll")]
+        public static extern bool MoveWindow(IntPtr hWnd, int x, int y, int nWidth, int nHeight, bool BRePaint);
     }
 }
