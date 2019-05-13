@@ -55,24 +55,28 @@ namespace 动态壁纸
         public void SetFullScreen(int i)
         {
             Win32.MoveWindow(this.Handle, 0, 0, Screen.AllScreens[i].Bounds.Width, Screen.AllScreens[i].Bounds.Height, true);
-
-            Point PointScree0 = new Point(0, 0);
-            Point PointScree1 = new Point(Screen.AllScreens[1].Bounds.Location.X, Screen.AllScreens[1].Bounds.Location.Y);
-            int k;
-            for (k = 0; k < Screen.AllScreens.Count() - 1; k++)
+            
+            if (Screen.AllScreens.Count()>1)
             {
-                if (Screen.AllScreens[k].Bounds.Location.X < Screen.AllScreens[k + 1].Bounds.Location.X)
+                Point PointScree0 = new Point(0, 0);
+                Point PointScree1 = new Point(Screen.AllScreens[1].Bounds.Location.X, Screen.AllScreens[1].Bounds.Location.Y);
+                int k;
+                for (k = 0; k < Screen.AllScreens.Count() - 1; k++)
                 {
-                    PointScree0.X = 0;
-                    PointScree1.X = Screen.AllScreens[k].Bounds.Width;
-                }
-                if (Screen.AllScreens[k].Bounds.Location.Y > Screen.AllScreens[k + 1].Bounds.Location.Y)
-                {
-                    PointScree0.Y = this.DesktopBounds.Location.Y;
-                    PointScree1.Y = 0;
-                }
+                    if (Screen.AllScreens[k].Bounds.Location.X < Screen.AllScreens[k + 1].Bounds.Location.X)
+                    {
+                        PointScree0.X = 0;
+                        PointScree1.X = Screen.AllScreens[k].Bounds.Width;
+                    }
+                    if (Screen.AllScreens[k].Bounds.Location.Y > Screen.AllScreens[k + 1].Bounds.Location.Y)
+                    {
+                        PointScree0.Y = this.DesktopBounds.Location.Y;
+                        PointScree1.Y = 0;
+                    }
 
+                }
             }
+            
             //textBox1.Text = textBox1.Text + PointScree0.ToString()+ PointScree1.ToString();
 
             if (i == 0)
