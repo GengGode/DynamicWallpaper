@@ -12,18 +12,11 @@ namespace 动态壁纸
         static void Main()
         {
             System.Diagnostics.Process process = RunningInstance();
-            if (process == null)
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new FormMain());
-            }
-            else
-            {
-                MessageBox.Show("已经运行了一个实例了");
-                Win32.ShowWindow(process.Handle, 4); 
-            }
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FormMain(process));
         }
+
         public static System.Diagnostics.Process RunningInstance()
         {
             System.Diagnostics.Process current = System.Diagnostics.Process.GetCurrentProcess();

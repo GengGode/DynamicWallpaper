@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.buttonView = new System.Windows.Forms.Button();
             this.buttonSet = new System.Windows.Forms.Button();
             this.buttonBackGroundMain = new System.Windows.Forms.Button();
             this.pictureBoxMain = new System.Windows.Forms.PictureBox();
+            this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +87,13 @@
             this.pictureBoxMain.TabIndex = 2;
             this.pictureBoxMain.TabStop = false;
             // 
+            // notifyIconMain
+            // 
+            this.notifyIconMain.BalloonTipText = "动态壁纸";
+            this.notifyIconMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconMain.Icon")));
+            this.notifyIconMain.Text = "动态壁纸";
+            this.notifyIconMain.Visible = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -110,6 +119,7 @@
         private System.Windows.Forms.Button buttonSet;
         public System.Windows.Forms.PictureBox pictureBoxMain;
         private System.Windows.Forms.Button buttonBackGroundMain;
+        private System.Windows.Forms.NotifyIcon notifyIconMain;
     }
 }
 

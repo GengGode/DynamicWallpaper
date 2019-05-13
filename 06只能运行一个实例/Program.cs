@@ -20,8 +20,8 @@ namespace _06只能运行一个实例
             //Application.Run(new Form1());
 
             bool State=true;
-
-            if (RunningInstance() == null)
+            System.Diagnostics.Process process = RunningInstance();
+            if (process == null)
             {
                 State = true;
             }
@@ -33,7 +33,7 @@ namespace _06只能运行一个实例
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(State));
+            Application.Run(new Form1(State, process));
 
         }
         public static System.Diagnostics.Process RunningInstance()

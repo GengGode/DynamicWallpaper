@@ -19,7 +19,7 @@ namespace _07发送系统通知
 
         private void button1_Click(object sender, EventArgs e)
         {
-            notifyIcon1.ShowBalloonTip(1000, "标题", "文本内容", 0);
+            notifyIcon1.ShowBalloonTip(1, "标题", "文本内容", 0);
         }
     }
 }

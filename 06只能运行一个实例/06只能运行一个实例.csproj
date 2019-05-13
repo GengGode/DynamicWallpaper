@@ -78,5 +78,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\动态壁纸\动态壁纸.csproj">
+      <Project>{85B4CE52-5398-4366-9BD2-5B4B0F3A3C5C}</Project>
+      <Name>动态壁纸</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
