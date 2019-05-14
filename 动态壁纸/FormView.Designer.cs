@@ -60,15 +60,19 @@
             // 
             // panelView
             // 
+            this.panelView.AllowDrop = true;
             this.panelView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelView.BackgroundImage = global::动态壁纸.Properties.Resources.G_;
             this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelView.Location = new System.Drawing.Point(12, 12);
+            this.panelView.Location = new System.Drawing.Point(0, 0);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(451, 258);
+            this.panelView.Size = new System.Drawing.Size(476, 269);
             this.panelView.TabIndex = 0;
+            this.panelView.DoubleClick += new System.EventHandler(this.panelView_DoubleClick);
+            this.panelView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelView_MouseDoubleClick);
+            this.panelView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelView_MouseDown);
             // 
             // ComboBoxAllScreens
             // 

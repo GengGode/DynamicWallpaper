@@ -8,8 +8,10 @@ namespace 动态壁纸
 {
     public partial class FormMain : Form
     {
+        private FormBackGround formBackGround = null;
         private FormView formView = null;
         private FormSet formSet = null;
+        public IntPtr backGroundPtr = IntPtr.Zero;
         private IntPtr viewPtr = IntPtr.Zero;
         public IntPtr setPtr = IntPtr.Zero;
 
@@ -47,11 +49,14 @@ namespace 动态壁纸
         {
             try
             {
-                pictureBoxMain.ImageLocation = SetFile.Default.DefaultPath;
-                Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
-                Bitmap myBitmap = new Bitmap(SetFile.Default.DefaultPath);
-                Image myThumbnail = myBitmap.GetThumbnailImage(40, 40, myCallback, IntPtr.Zero);
-                pictureBoxMain.Image = myThumbnail;
+                if (File.Exists(SetFile.Default.DefaultPath))
+                {
+                    pictureBoxMain.ImageLocation = SetFile.Default.DefaultPath;
+                    Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
+                    Bitmap myBitmap = new Bitmap(SetFile.Default.DefaultPath);
+                    Image myThumbnail = myBitmap.GetThumbnailImage(40, 40, myCallback, IntPtr.Zero);
+                    pictureBoxMain.Image = myThumbnail;
+                }
             }
             catch (FileNotFoundException e)
             {
@@ -61,8 +66,6 @@ namespace 动态壁纸
             {
                 MessageBox.Show(ee.Message);
             }
-            /*
-            */
         }
         #endregion
 
@@ -132,10 +135,41 @@ namespace 动态壁纸
 
         #endregion
 
+        #region 打开或新建 BackGround 窗口
         private void buttonBackGroundMain_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (backGroundPtr == IntPtr.Zero)
+                {
+                    formBackGround = new FormBackGround();
+                    backGroundPtr = formBackGround.Handle;
+                    formBackGround.Show();
+                    if (SetFile.Default.TempViewPath != null)
+                    {
+                        if (File.Exists(SetFile.Default.TempViewPath))
+                        {
+                            formBackGround.VideoBackGroundPlay(SetFile.Default.TempViewPath);
+                        }
+                    }
+                    formBackGround.SetFullScreen(SetFile.Default.DefaultFullScreen);
+                    formBackGround.Show();
+                }
+                else
+                {
+                    //formBackGround.Show();
+                }
+            }
+            catch (DllNotFoundException ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
         }
+        #endregion
 
         private void FormMain_Load(object sender, EventArgs e)
         {

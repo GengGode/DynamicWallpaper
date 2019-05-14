@@ -28,27 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelBackGround = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // panelBackGround
-            // 
-            this.panelBackGround.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelBackGround.BackgroundImage = global::动态壁纸.Properties.Resources.G_;
-            this.panelBackGround.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelBackGround.Location = new System.Drawing.Point(0, 0);
-            this.panelBackGround.Name = "panelBackGround";
-            this.panelBackGround.Size = new System.Drawing.Size(528, 342);
-            this.panelBackGround.TabIndex = 0;
             // 
             // FormBackGround
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::动态壁纸.Properties.Resources.G_;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(528, 342);
-            this.Controls.Add(this.panelBackGround);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormBackGround";
             this.Text = "背景";
@@ -58,7 +47,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelBackGround;
     }
 }

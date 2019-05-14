@@ -106,9 +106,9 @@ namespace 动态壁纸
             videoBackGround = new Video(Path);
 
             //控制播放视频窗口的大小（此项目是把视频放到一个panel中，panelView是一个panel）
-            int width = panelBackGround.Width;
-            int height = panelBackGround.Height;
-            videoBackGround.Owner = panelBackGround;
+            int width = this.Width;
+            int height = this.Height;
+            videoBackGround.Owner = this;//panelBackGround;
             videoBackGround.Owner.Width = width;
             videoBackGround.Owner.Height = height;
 

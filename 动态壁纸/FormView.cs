@@ -62,8 +62,10 @@ namespace 动态壁纸
                     int width = panelView.Width;
                     int height = panelView.Height;
                     videoViewPanel.Owner = panelView;
-                    videoViewPanel.Owner.Width = width;
-                    videoViewPanel.Owner.Height = height;
+                    videoViewPanel.Owner.Location = new System.Drawing.Point(12, 12);
+                    videoViewPanel.Owner.Width = width-24;
+                    videoViewPanel.Owner.Height = height-12;
+
 
                     videoViewPanel.Play();
                 }
@@ -174,6 +176,33 @@ namespace 动态壁纸
             }
             */
             ComboBoxAllScreens.SelectedIndex = 0;
+        }
+
+        private void panelView_DoubleClick(object sender, EventArgs e)
+        {
+            PausepanelView();
+        }
+
+        private void PausepanelView()
+        {
+            if (videoViewPanel != null)
+            {
+                if (videoViewPanel.Playing)
+                {
+                    videoViewPanel.Pause();
+                }
+            }
+        }
+
+        private void panelView_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void panelView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            PausepanelView();
+
         }
     }
 }
