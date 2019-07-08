@@ -11,9 +11,9 @@ namespace 动态壁纸
         private FormBackGround formBackGround = null;
         private FormView formView = null;
         private FormSet formSet = null;
-        public IntPtr backGroundPtr = IntPtr.Zero;
-        private IntPtr viewPtr = IntPtr.Zero;
-        public IntPtr setPtr = IntPtr.Zero;
+        public static IntPtr backGroundPtr = IntPtr.Zero;
+        public static IntPtr viewPtr = IntPtr.Zero;
+        public static IntPtr setPtr = IntPtr.Zero;
 
         public FormMain(System.Diagnostics.Process process)
         {

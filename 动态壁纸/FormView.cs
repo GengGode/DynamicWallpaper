@@ -57,14 +57,12 @@ namespace 动态壁纸
                     }
 
                     videoViewPanel = new Video(SetFile.Default.TempViewPath);
-
                     //控制播放视频窗口的大小（此项目是把视频放到一个panel中，panelView是一个panel）
                     int width = panelView.Width;
                     int height = panelView.Height;
                     videoViewPanel.Owner = panelView;
-                    videoViewPanel.Owner.Location = new System.Drawing.Point(12, 12);
-                    videoViewPanel.Owner.Width = width-24;
-                    videoViewPanel.Owner.Height = height-12;
+                    videoViewPanel.Owner.Width = width;
+                    videoViewPanel.Owner.Height = height;
 
 
                     videoViewPanel.Play();
@@ -103,41 +101,20 @@ namespace 动态壁纸
                     if (SetFile.Default.TempViewPath != null)
                     {
                         formBackGround.VideoBackGroundPlay(SetFile.Default.TempViewPath);
-                        //formBackGround.
-                        //音量控制
-                        //formBackGround.BackGPlay(tempPath, viewP.Audio.Volume);
-                        //videoViewPanel.Pause();
+                        SetFile.Default.NowPlayingPath = SetFile.Default.TempViewPath;
                     }
                     formBackGround.SetFullScreen(ScreenCount);
                     formBackGround.Show();
-                    /*
-                    if (SetFile.Default.IsFullScreenOfMainWindow)//Screen.AllScreens.Count() = 1
-                    {
-                        formBackGround.SetFullScreen(0);
-                        formBackGround.Show();
-                    }
-                    else
-                    {
-                        if (SetFile.Default.DefaultFullScreen < Screen.AllScreens.Count())
-                        {
-                            formBackGround.SetFullScreen(SetFile.Default.DefaultFullScreen);
-                            formBackGround.Show();
-                        }
-                        else
-                        {
-                            formBackGround.SetFullScreen(0);
-                            formBackGround.Show();
-                        }
-                    }
-                    */
                 }
-                /*else
+                else
                 {
-                    formBackGround.Show();
-
-                    //if (tempPath != null)
-                        //formBackGround.BackGPlay(tempPath, viewP.Audio.Volume);
-                }*/
+                    formBackGround.VideoBackGroundStop();
+                    if (SetFile.Default.TempViewPath != null)
+                    {
+                        formBackGround.VideoBackGroundPlay(SetFile.Default.TempViewPath);
+                        SetFile.Default.NowPlayingPath = SetFile.Default.TempViewPath;
+                    }
+                }
             }
             catch (DirectXException ee)
             {
@@ -164,17 +141,6 @@ namespace 动态壁纸
                 String screen = Screen.AllScreens[i].DeviceName;//.ToString();
                 ComboBoxAllScreens.Items.Add(screen);
             }
-            
-            /*
-            Screen[] Screens = Screen.AllScreens.ToArray();
-            //Screen[Bounds={X=0,Y=0,Width=1366,Height=768} WorkingArea={X=0,Y=0,Width=1366,Height=768} Primary=True DeviceName=\\.\DISPLAY1
-            //Screen[Bounds={X=1366,Y=-235,Width=1920,Height=1080} WorkingArea={X=1366,Y=-235,Width=1920,Height=1080} Primary=False DeviceName=\\.\DISPLAY2
-            
-            foreach (Screen Screen in Screens)
-            {
-                ComboBoxAllScreens.Items.Add(Screen);
-            }
-            */
             ComboBoxAllScreens.SelectedIndex = 0;
         }
 
@@ -204,5 +170,7 @@ namespace 动态壁纸
             PausepanelView();
 
         }
+
+        
     }
 }

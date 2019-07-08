@@ -86,5 +86,29 @@ namespace 动态壁纸 {
                 this["TempViewPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int NowVideoTimes {
+            get {
+                return ((int)(this["NowVideoTimes"]));
+            }
+            set {
+                this["NowVideoTimes"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NowPlayingPath {
+            get {
+                return ((string)(this["NowPlayingPath"]));
+            }
+            set {
+                this["NowPlayingPath"] = value;
+            }
+        }
     }
 }

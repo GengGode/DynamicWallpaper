@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.BackGroundVideoTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // BackGroundVideoTimer
+            // 
+            this.BackGroundVideoTimer.Tick += new System.EventHandler(this.BackGroundVideoTimer_Tick);
             // 
             // FormBackGround
             // 
@@ -47,5 +53,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer BackGroundVideoTimer;
     }
 }

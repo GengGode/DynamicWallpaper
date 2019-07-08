@@ -66,9 +66,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelView.BackgroundImage = global::动态壁纸.Properties.Resources.G_;
             this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelView.Location = new System.Drawing.Point(0, 0);
+            this.panelView.Location = new System.Drawing.Point(12, 12);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(476, 269);
+            this.panelView.Size = new System.Drawing.Size(451, 263);
             this.panelView.TabIndex = 0;
             this.panelView.DoubleClick += new System.EventHandler(this.panelView_DoubleClick);
             this.panelView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelView_MouseDoubleClick);
@@ -76,6 +76,7 @@
             // 
             // ComboBoxAllScreens
             // 
+            this.ComboBoxAllScreens.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBoxAllScreens.FormattingEnabled = true;
             this.ComboBoxAllScreens.Location = new System.Drawing.Point(198, 281);
             this.ComboBoxAllScreens.Name = "ComboBoxAllScreens";
