@@ -34,8 +34,11 @@
             this.buttonSet = new System.Windows.Forms.Button();
             this.buttonBackGroundMain = new System.Windows.Forms.Button();
             this.pictureBoxMain = new System.Windows.Forms.PictureBox();
-            this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
+            this.MainNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.MainNotifyIconContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
+            this.MainNotifyIconContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonView
@@ -87,12 +90,26 @@
             this.pictureBoxMain.TabIndex = 2;
             this.pictureBoxMain.TabStop = false;
             // 
-            // notifyIconMain
+            // MainNotifyIcon
             // 
-            this.notifyIconMain.BalloonTipText = "动态壁纸";
-            this.notifyIconMain.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconMain.Icon")));
-            this.notifyIconMain.Text = "动态壁纸";
-            this.notifyIconMain.Visible = true;
+            this.MainNotifyIcon.BalloonTipText = "动态壁纸";
+            this.MainNotifyIcon.ContextMenuStrip = this.MainNotifyIconContextMenuStrip;
+            this.MainNotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("MainNotifyIcon.Icon")));
+            this.MainNotifyIcon.Text = "动态壁纸";
+            this.MainNotifyIcon.Visible = true;
+            // 
+            // MainNotifyIconContextMenuStrip
+            // 
+            this.MainNotifyIconContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.MainNotifyIconContextMenuStrip.Name = "MainNotifyIconContextMenuStrip";
+            this.MainNotifyIconContextMenuStrip.Size = new System.Drawing.Size(106, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.toolStripMenuItem1.Text = "Main";
             // 
             // FormMain
             // 
@@ -109,6 +126,7 @@
             this.Text = "动态壁纸";
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).EndInit();
+            this.MainNotifyIconContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -119,7 +137,9 @@
         private System.Windows.Forms.Button buttonSet;
         public System.Windows.Forms.PictureBox pictureBoxMain;
         private System.Windows.Forms.Button buttonBackGroundMain;
-        private System.Windows.Forms.NotifyIcon notifyIconMain;
+        private System.Windows.Forms.NotifyIcon MainNotifyIcon;
+        private System.Windows.Forms.ContextMenuStrip MainNotifyIconContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

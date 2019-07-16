@@ -101,7 +101,7 @@ namespace 动态壁纸
                     if (SetFile.Default.TempViewPath != null)
                     {
                         formBackGround.VideoBackGroundPlay(SetFile.Default.TempViewPath);
-                        SetFile.Default.NowPlayingPath = SetFile.Default.TempViewPath;
+                        
                     }
                     formBackGround.SetFullScreen(ScreenCount);
                     formBackGround.Show();
@@ -112,7 +112,7 @@ namespace 动态壁纸
                     if (SetFile.Default.TempViewPath != null)
                     {
                         formBackGround.VideoBackGroundPlay(SetFile.Default.TempViewPath);
-                        SetFile.Default.NowPlayingPath = SetFile.Default.TempViewPath;
+                        //SetFile.Default.NowPlayingPath = SetFile.Default.TempViewPath;
                     }
                 }
             }

@@ -77,7 +77,7 @@ namespace 动态壁纸 {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\GengG\\Desktop\\illya.mp4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("G:\\Video\\动态壁纸\\壁纸\\DGVB.mp4")]
         public string TempViewPath {
             get {
                 return ((string)(this["TempViewPath"]));

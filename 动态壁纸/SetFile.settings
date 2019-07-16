@@ -15,7 +15,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="TempViewPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\GengG\Desktop\illya.mp4</Value>
+      <Value Profile="(Default)">G:\Video\动态壁纸\壁纸\DGVB.mp4</Value>
     </Setting>
     <Setting Name="NowVideoTimes" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>

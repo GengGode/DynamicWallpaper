@@ -20,14 +20,14 @@ namespace 动态壁纸
             InitializeComponent();
             if (process != null)//重复打开对应事件
             {
-                //notifyIconMain.Visible = false;
+                MainNotifyIcon.Visible = false;
 
                 this.Visible = false;
                 this.ShowInTaskbar = false;
                 this.ShowIcon = false;
                 this.Hide();
-
-                notifyIconMain.ShowBalloonTip(10, "程序已运行", "后台已运行动态壁纸", ToolTipIcon.Info);
+                
+                MainNotifyIcon.ShowBalloonTip(10, "程序已运行", "后台已运行动态壁纸", ToolTipIcon.Info);
                 //弹出系统通知
                 Win32.ShowWindow(process.MainWindowHandle, 10);
                 //将已打开程序前置
@@ -37,6 +37,7 @@ namespace 动态壁纸
                 //自我关闭
             }
             SetDefaultPictureMain();
+            MainNotifyIcon.Visible = true;
             if (SetFile.Default.IsFristStatUp == true)
             {
                 //SetFile.Default.IsFristStatUp = false;
