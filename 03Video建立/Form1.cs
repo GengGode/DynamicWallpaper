@@ -35,7 +35,9 @@ namespace _03Video建立
                         }
                     }
 
-                    videoViewPanel = new Video(TempViewPath);
+                    //videoViewPanel = new Video(TempViewPath,false);
+                    //videoViewPanel = Video.FromFile(TempViewPath, false); //Open(TempViewPath, false);
+                    videoViewPanel = new Video(TempViewPath, true);
                     videoViewPanel.Owner = panel1;
 
                     //控制播放视频窗口的大小（此项目是把视频放到一个panel中，panelView是一个panel）
@@ -48,7 +50,7 @@ namespace _03Video建立
                 }
                 catch (Exception ee)
                 {
-                    MessageBox.Show(ee.Message);
+                    MessageBox.Show(ee.ToString());
                 }
             }
             OpenFileViewDialog.Dispose();

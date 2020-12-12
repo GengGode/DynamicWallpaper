@@ -176,5 +176,19 @@ namespace 动态壁纸
         {
 
         }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Visible = false;
+            this.ShowInTaskbar = false;
+
+        }
+
+        private void mainShowtoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = true;
+            this.ShowInTaskbar = true;
+        }
     }
 }

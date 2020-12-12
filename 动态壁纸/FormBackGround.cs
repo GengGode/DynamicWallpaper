@@ -191,7 +191,11 @@ namespace 动态壁纸
 
                 return sum;
             }
-            catch (Exception ex) { return 0; }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
         }
         #endregion
 

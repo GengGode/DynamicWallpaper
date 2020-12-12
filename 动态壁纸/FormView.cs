@@ -56,21 +56,45 @@ namespace 动态壁纸
                         }
                     }
 
-                    videoViewPanel = new Video(SetFile.Default.TempViewPath);
-                    //控制播放视频窗口的大小（此项目是把视频放到一个panel中，panelView是一个panel）
-                    int width = panelView.Width;
-                    int height = panelView.Height;
-                    videoViewPanel.Owner = panelView;
-                    videoViewPanel.Owner.Width = width;
-                    videoViewPanel.Owner.Height = height;
+                    try
+                    {
+                        videoViewPanel = new Video(SetFile.Default.TempViewPath);
+                        //控制播放视频窗口的大小（此项目是把视频放到一个panel中，panelView是一个panel）
+                        
+                        try
+                        {
+                            int width = panelView.Width;
+                            int height = panelView.Height;
+                            videoViewPanel.Owner = panelView;
+                            videoViewPanel.Owner.Width = width;
+                            videoViewPanel.Owner.Height = height;
+                        }
+                        catch (Exception ee)
+                        {
+                            MessageBox.Show(ee.Message);
+                        }
+
+                    }
+                    catch (DirectXException ee)
+                    {
+                        MessageBox.Show(ee.ToString());
+                    }
+                    catch (Exception ee)
+                    {
+                        MessageBox.Show(ee.Message);
+                    }
+
+                    
 
 
                     videoViewPanel.Play();
                 }
+                /*
                 catch (DirectXException ee)
                 {
-                    MessageBox.Show(ee.Message);
+                    MessageBox.Show(ee.ToString());
                 }
+                */
                 catch (Exception ee)
                 {
                     MessageBox.Show(ee.Message);
