@@ -49,7 +49,7 @@ namespace _10DirectX12SDK测试
         {
             Win32.MoveWindow(this.Handle, Screen.AllScreens[i].Bounds.Left- absZeros.X, Screen.AllScreens[i].Bounds.Top- absZeros.Y, Screen.AllScreens[i].Bounds.Width, Screen.AllScreens[i].Bounds.Height, true);
 
-            MessageBox.Show((Screen.AllScreens[i].Bounds.Left - absZeros.X).ToString() + " " + (Screen.AllScreens[i].Bounds.Top - absZeros.Y).ToString());
+            //MessageBox.Show((Screen.AllScreens[i].Bounds.Left - absZeros.X).ToString() + " " + (Screen.AllScreens[i].Bounds.Top - absZeros.Y).ToString());
         }
 
         private void SetBackGroud()
