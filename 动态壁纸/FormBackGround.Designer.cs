@@ -48,6 +48,7 @@
             this.Name = "FormBackGround";
             this.Text = "背景";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormBackGround_FormClosing);
+            this.Load += new System.EventHandler(this.FormBackGround_Load);
             this.ResumeLayout(false);
 
         }

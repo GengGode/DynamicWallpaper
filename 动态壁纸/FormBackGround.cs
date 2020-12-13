@@ -16,6 +16,7 @@ namespace 动态壁纸
             InitializeComponent();
             Ptr = this.Handle;
             SetBackGroud();
+            //SetFullScreen(1);
         }
 
         #region 窗口关闭事件
@@ -221,6 +222,11 @@ namespace 动态壁纸
                     BackGroundVideoTimer.Start();
                 }
             }
+        }
+
+        private void FormBackGround_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
