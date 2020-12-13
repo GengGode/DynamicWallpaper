@@ -39,7 +39,7 @@ namespace _11预览所有屏幕
             else
             {
                 rect = mRect;
-                if (bit!=null)
+                if (bit != null)
                 {
                     bit.Dispose();
                     bit = null;
@@ -53,7 +53,6 @@ namespace _11预览所有屏幕
                 //bit.Dispose();
                 //bit = null;
             }
-
             //DeleteObject(bit);
             //bit.Dispose();
 
@@ -87,5 +86,10 @@ namespace _11预览所有屏幕
         [DllImport("coredll.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool DeleteObject(IntPtr hgdiobj);
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
