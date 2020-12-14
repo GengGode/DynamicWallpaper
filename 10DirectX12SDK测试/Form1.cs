@@ -15,7 +15,7 @@ namespace _10DirectX12SDK测试
 
         public int ptrDisplay = -1;
 
-        public Form2 f2 = null;
+        public static Form2 f2 = null;
 
         public Form1()
         {
@@ -35,14 +35,21 @@ namespace _10DirectX12SDK测试
             videoSize.Height = panel1.Height;
             videoSize.Width = panel1.Width;
 
-            video = new Video("C:\\Users\\GengG\\source\\repos\\动态壁纸\\000.mp4",true);
+            video = new Video("C:\\Users\\GengG\\source\\repos\\动态壁纸\\001.mp4",true);
 
             video.Owner = panel1;
+            video.Ending += onVideo_Ending;
             video.Play();
 
             panel1.Height = videoSize.Height;
             panel1.Width = videoSize.Width;
+            textBox1.Text = video.Duration.ToString();
+        }
 
+        private void onVideo_Ending(object sender, EventArgs e)
+        {
+            video.CurrentPosition = 0;
+            video.Play();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -82,7 +89,8 @@ namespace _10DirectX12SDK测试
             {
                 if (f2 == null)
                 {
-                    f2 = new Form2("C:\\Users\\GengG\\source\\repos\\动态壁纸\\000.mp4", absZeros, ptrDisplay);
+                    video.Pause();
+                    f2 = new Form2("C:\\Users\\GengG\\source\\repos\\动态壁纸\\001.mp4", absZeros, ptrDisplay);
                 }
                 else
                 {
@@ -96,7 +104,9 @@ namespace _10DirectX12SDK测试
 
                     if (f2 == null)
                     {
-                        f2 = new Form2("C:\\Users\\GengG\\source\\repos\\动态壁纸\\000.mp4", absZeros, ptrDisplay);
+                        video.Pause();
+
+                        f2 = new Form2("C:\\Users\\GengG\\source\\repos\\动态壁纸\\001.mp4", absZeros, ptrDisplay);
                     }
                     else
                     {
@@ -137,6 +147,16 @@ namespace _10DirectX12SDK测试
         {
             getScreenList(comboBox1);
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            video.Stop();
+            video.Dispose();
+            if (!video.Disposed)
+            {
+                video.Dispose();
+            }
         }
     }
 }

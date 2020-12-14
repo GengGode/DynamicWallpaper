@@ -26,6 +26,7 @@ namespace _10DirectX12SDK测试
             Ptr = this.Handle;
             absZeros = mAbsZeros;
             ptrDisplay = mptrDisplay;
+
             InitializeComponent();
 
             SetBackGroud();
@@ -34,8 +35,10 @@ namespace _10DirectX12SDK测试
             videoSize.Width = Width;
             video.Owner = this;
             video.Play();
+            video.Ending += onVideo_Ending;
             Height = videoSize.Height;
             Width = videoSize.Width;
+            
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -43,6 +46,25 @@ namespace _10DirectX12SDK测试
             //Show();
             absZeros = getAbsZeros();
             SetFullScreen(ptrDisplay);
+            
+        }
+
+        private void onVideo_Ending(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+
+            //if (video.StopPosition == video.Duration)
+            //{
+            //    video.CurrentPosition = 0;
+            //    video.Play();
+            //}
+            //else
+            //{
+            //    MessageBox.Show(video.StopPosition.ToString() + ' ' + video.Duration);
+            //}
+
+            video.CurrentPosition = 0;
+            video.Play();
         }
 
         public void SetFullScreen(int i)
@@ -85,6 +107,16 @@ namespace _10DirectX12SDK测试
             }
 
             return res;
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            video.Stop();
+            video.Dispose();
+            if (!video.Disposed)
+            {
+                video.Dispose();
+            }
         }
     }
 }
