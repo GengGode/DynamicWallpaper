@@ -22,6 +22,7 @@ namespace _10DirectX12SDK测试
         public Form1()
         {
             InitializeComponent();
+
             //获取显示器工作区绘制坐标系零点偏移量
             absZeros = getAbsZeros();
             //获取显示器列表
