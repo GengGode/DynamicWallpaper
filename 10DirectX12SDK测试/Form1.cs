@@ -13,8 +13,6 @@ namespace _10DirectX12SDK测试
 
         public Point absZeros = new Point(0, 0);
 
-        public string path = null;
-
         public int ptrDisplay = -1;
 
         public static Form2 f2 = null;
@@ -33,24 +31,15 @@ namespace _10DirectX12SDK测试
             videoSize.Height = panel1.Height;
             videoSize.Width = panel1.Width;
 
-            OpenFileDialog OpenFileViewDialog = new OpenFileDialog();
-            OpenFileViewDialog.Filter = "Video|*.mp4;*.wmv;*.avi;*.flv;|Picture|*.jpg;*.png;*.gif;*.bmp;*.dng;|All|*.*;";
-            DialogResult OpenResultView = OpenFileViewDialog.ShowDialog();
-            if (OpenResultView == DialogResult.OK)
-            {
-                path = OpenFileViewDialog.FileName;
-                video = new Video(path, true);
+            video = new Video("C:\\Users\\GengG\\source\\repos\\动态壁纸\\001.mp4",true);
 
-                video.Owner = panel1;
-                video.Ending += onVideo_Ending;
-                video.Play();
+            video.Owner = panel1;
+            video.Ending += onVideo_Ending;
+            video.Play();
 
-                panel1.Height = videoSize.Height;
-                panel1.Width = videoSize.Width;
-                textBox1.Text = video.Duration.ToString();
-            }
-
-
+            panel1.Height = videoSize.Height;
+            panel1.Width = videoSize.Width;
+            textBox1.Text = video.Duration.ToString();
         }
 
         private void onVideo_Ending(object sender, EventArgs e)
@@ -61,7 +50,6 @@ namespace _10DirectX12SDK测试
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (video == null) return;
             switch (video.State)
             {
                 case StateFlags.Running:
@@ -82,26 +70,23 @@ namespace _10DirectX12SDK测试
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (video == null) return;
             video.Play();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (video == null) return;
             video.Stop();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (path == null) return;
             ptrDisplay = comboBox1.SelectedIndex;
             if (ptrDisplay >= 0)
             {
                 if (f2 == null)
                 {
                     video.Pause();
-                    f2 = new Form2(path, absZeros, ptrDisplay);
+                    f2 = new Form2("C:\\Users\\GengG\\source\\repos\\动态壁纸\\001.mp4", absZeros, ptrDisplay);
                 }
                 else
                 {
@@ -117,7 +102,7 @@ namespace _10DirectX12SDK测试
                     {
                         video.Pause();
 
-                        f2 = new Form2(path, absZeros, ptrDisplay);
+                        f2 = new Form2("C:\\Users\\GengG\\source\\repos\\动态壁纸\\001.mp4", absZeros, ptrDisplay);
                     }
                     else
                     {
@@ -168,18 +153,6 @@ namespace _10DirectX12SDK测试
             {
                 video.Dispose();
             }
-        }
-
-        void openFile()
-        {
-            OpenFileDialog OpenFileViewDialog = new OpenFileDialog();
-            OpenFileViewDialog.Filter = "Video|*.mp4;*.wmv;*.avi;*.flv;|Picture|*.jpg;*.png;*.gif;*.bmp;*.dng;|All|*.*;";
-            DialogResult OpenResultView = OpenFileViewDialog.ShowDialog();
-            if (OpenResultView == DialogResult.OK)
-            {
-                path = OpenFileViewDialog.FileName;
-            }
-
         }
     }
 }
